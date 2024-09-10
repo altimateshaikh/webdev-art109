@@ -1,0 +1,105 @@
+/* 
+Color palette
+
+8A716A db
+C2B8B2 lb
+4A8FE7 b
+21FA90 g
+204B57 bg
+*/
+/* global styals 
+_________________________*/
+/* 
+  https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*/
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  html, body{
+    height: 100%;
+  }
+body{
+    background: #c2b8b2;
+    margin: 0;
+}
+/* links */
+a{
+
+    color: #21FA90;
+}
+a:hover{
+    color: #204B57;
+    text-decoration: none;
+}
+footer a{
+    color:#204B57;
+    
+}
+footer a:hover{
+    color: #21FA90;
+}
+.btn{
+    background: #204B57;
+    color: #c2b8b2;
+    text-decoration: none;
+}
+.content-wrapper{
+    margin:0 auto;
+    max-width: 900;
+    padding: 30px;
+}
+/* HOME
+___________________________ */
+.home{
+    background: url(../images/snow\ leopard\ all\ effect.png) no-repeat;
+    background-size: cover;
+}
+.home .content-wrapper{
+    background: #4A8FE7 
+}
+
+/* RESUME 
+____________________________*/
+.resume header::before{
+    background: url(../images/snow\ leopard\ all\ effect.png) center;
+    background-size: cover ;
+    content: "";
+    display: block;
+    height: 375px;
+
+}
+
+/* Profile
+____________________________ */
+
+/* Projects
+____________________________ */
+
+
+/* Work experiance
+____________________________ */
+
+/* Education
+____________________________ */
+
+
+/* FOOTER 
+____________________________*/
+footer{
+    background: #222;
+    color: #d3d4d6;
+}
+.socials {
+    list-style-type: none;
+    padding: 0;
+} 
+.socials li{
+    display: inline-block;
+}
+.socials img {
+    width: 32px;
+}
