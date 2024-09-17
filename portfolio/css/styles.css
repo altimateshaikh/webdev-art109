@@ -57,9 +57,16 @@ ___________________________ */
 .home{
     background: url(../images/snow\ leopard\ all\ effect.png) no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 .home .content-wrapper{
-    background: #4A8FE7 
+     
+    flex: 1 0 auto;
+}
+.content-bg{
+    background: #4A8FE7/0.9;
+    padding: 30px;
 }
 
 /* RESUME 
@@ -72,9 +79,30 @@ ____________________________*/
     height: 375px;
 
 }
+.resume-section {
+    margin-bottom: 50px;
 
+}
+.resume-section h2 {
+    border-bottom: 2px dashed #21FA90;
+}
+.download-link {
+    position: fixed;
+    top: 5px;
+}
 /* Profile
 ____________________________ */
+
+.project-item {
+    display: flow-root;
+    margin: 30px, 0;
+}
+.project-item img{
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+
+}
 
 /* Projects
 ____________________________ */
@@ -82,6 +110,11 @@ ____________________________ */
 
 /* Work experiance
 ____________________________ */
+.work-item{
+   display: grid;
+    grid-template-columns: 300px 1fr ;
+    column-gap: 20px;
+}
 
 /* Education
 ____________________________ */
@@ -92,6 +125,9 @@ ____________________________*/
 footer{
     background: #222;
     color: #d3d4d6;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 .socials {
     list-style-type: none;
@@ -99,7 +135,11 @@ footer{
 } 
 .socials li{
     display: inline-block;
+    margin-left: 10px;
 }
 .socials img {
     width: 32px;
+}
+.socials img:hover{
+    opacity: 0.5;
 }
