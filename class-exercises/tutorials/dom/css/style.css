@@ -38,9 +38,32 @@ html {
     text-align: center;
  }
  main {
-    max-width: 800px;
-    margin: 50px auto;
+    /* max-width: 800px;
+    margin: 50px auto; */
+
  }
- p {
+ .image-div {
+   display: inline-block;
+   
+ }
+ .hidden{
+   visibility: hidden;
+ }
+ #image-0{
+   position: absolute;
+   top: 100px;
+   right: 20vw;
+ }
+ #image-1{
+   position: absolute;
+   top: 250px;
+   left: 20vw;
+ }
+ #image-2{
+   position: fixed;
+   top: 20px;
+   left: 150px;
+ }
+ /* p {
     margin-top: 20px;
- }
+ } */
