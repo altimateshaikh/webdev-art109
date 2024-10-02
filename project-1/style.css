@@ -5,15 +5,6 @@
     margin: 0;
     user-select: none;
  }
- 
- 
- /* *,
- *:before,
- *:after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
- } */
 
  body{
     background-color: rgb(32, 36, 34);
@@ -37,16 +28,42 @@
     /* box-shadow: 1px 1px 5px rgb(255, 255, 255); */
       background-color: rgb(255, 0, 0);
       transition: top 0.5s ease, left 0.5s ease;
+      color: white;
   }
-  /* button:hover{
+  button:hover{
     opacity: .5;
-  } */
-  #runaway-btn {
-   /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: fit-content;
-    width: fit-content;
-   border: 1px solid white; */
   }
+ 
+  #hover-count{
+   position: fixed; /* Fixed position to stay in the bottom left */
+    bottom: 20px; /* 20 pixels from the bottom */
+    left: 20px; /* 20 pixels from the left */
+    font-size: 2rem; /* Larger text size */
+    color: white; /* Change text color to white for visibility */
+    z-index: 1000; /* Ensure it appears above other content */
+    opacity: 1;
+  }
+  #hover-count:hover{
+   opacity: 1;;
+  }
+
+
+  #close-tab-btn{
+   position: absolute;
+      top: 100%;
+      left: 100%;
+      transform: translate(-150%, -150%); 
+      font-size: 1.5rem;
+      border-radius: 5px;
+      border: none;
+      margin: 10px;
+      padding: 10px 10px;
+    /* box-shadow: 1px 1px 5px rgb(255, 255, 255); */
+      background-color: rgb(5, 96, 17);
+      transition: top 0.5s ease, left 0.5s ease;
+      color: white;
+   }
+
+   #close-tab-btn:hover{
+      opacity: 1;
+   }
