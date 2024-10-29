@@ -1,8 +1,20 @@
 body {
     margin: 0;
+    color: chartreuse;
 }
 
 canvas {
-    width: 100%;
+    /* width: 100%;
     height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    pointer-events: none; */
+}
+#scene-container{
+    background-color: black;
+    width: 80vw;
+    height: 800px;
+    margin: 0 auto;
 }
