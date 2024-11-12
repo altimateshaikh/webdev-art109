@@ -8,8 +8,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+
+    <script type="importmap">
+      {
+          "imports":{
+              "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three@0.162.0/examples/jsm/"
+          }
+      }
+  </script>
+
   </head>
   <body class="home">
+
+      
+      <nav>
+        <ul class="sidebar">
+          <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+          <li><a href="index.html">cover</a></li>
+          <li><a href="resume.html">resume</a></li>
+          <!-- <li><a href="#">survices</a></li>
+          <li><a href="#">contact</a></li> -->
+        </ul>
+        <ul>
+          <li onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+          <!-- <li><a href="#">tutorial</a></li> -->
+          <li class="hideOnMobile"><a href="index.html">cover</a></li>
+          <li class="hideOnMobile"><a href="resume.html">resume</a></li>
+          <!-- <li class="hideOnMobile"><a href="#">survices</a></li>
+          <li class="hideOnMobile"><a href="#">contact</a></li> -->
+          
+        </ul>
+      </nav>
+      <script>
+        function showSidebar(){
+          const sidebar = document.querySelector('.sidebar')
+          sidebar.style.display = 'flex'
+        }
+        function hideSidebar(){
+           const sidebar = document.querySelector('.sidebar')
+          sidebar.style.display = 'none'
+        }
+      </script>
+
+
     <!-- //  INTRO  // -->
     <div class="content-wrapper">
       <div class="content-bg">
@@ -24,10 +66,14 @@
         <!-- //  ABOUT ME  // -->
         <main>
         <!-- Start content edits below this line. -->
-        <p>Add your "about me" summary here. Add more paragraphs or links as needed. 
-            Here is some dummy text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Praesent bibendum, diam ut gravida efficitur, risus neque scelerisque erat, ut rhoncus erat odio ac justo. 
-            Nunc scelerisque vestibulum augue, sit amet hendrerit ante.</p>
+        <p>Hello, my name is Moosa Shaikh I am an aspiring digital media artist with an interest in animation, 3D Modeling, and concept art. 
+          I am well versed in blender photoshop and a whole host of digital art programs which I can use to produce anything from logos to 
+          3D models. I found your job posting through indeed and think I would make a great addition to your team.</p>
+        <p>This is because thanks to previous job experience I am a great team player and will mesh well with the culture that you foster 
+          in this company. I am incredibly passionate about Blender and 3D Modeling and truly want to learn how to make better animations 
+          and create incredible works with other people. I love working with others who are also without a doubt incredible at what they 
+          do and believe that together we can help make the company a better place.
+        </p>
         <p> Moosa Shaikh is a current digital media art student at San Jose State University who is looking to expand his knowlage of digatal media 
             and the technologies associated with it. He wishes to use this information to help him in his career where ever that career takes him
             currently he is taking a intro to websight creation corse to further this endevour.</p>
@@ -36,6 +82,9 @@
         <!-- End content edits here. -->
         </main>
       </div>
+    <div id="container">
+
+    </div>
     </div>
     <!-- //  FOOTER INFO, SOCIAL MEDIA  // -->
     <footer>
@@ -62,5 +111,6 @@
       </ul>
       <!-- End content edits here. -->
     </footer>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

@@ -16,12 +16,31 @@ renderer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10,3,16,100);
 
+const particlesGeometry = new THREE.BufferGeometry;
+const particlesCount = 5000;
+
+const posArray = new Float32Array(particlesCount *3);
+
+for(let i = 0; i < particlesCount*3; i++){
+    // posArray[i] = Math.random()
+    posArray[i] = (Math.random() - 0.5) * 5
+}
+
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+
 const texture = new THREE.TextureLoader().load('textures/grasslight-big.jpg');
-const material = new THREE.MeshBasicMaterial({map: texture});
+const material = new THREE.PointsMaterial({map: texture, size: 0.005});
 
-const torus = new THREE.Mesh(geometry, material);
+const particlesMaterial = new THREE.PointsMaterial({ 
+    size: 0.005,
+    color: 'red'
+});
 
-scene.add(torus);
+const torus = new THREE.Points(geometry, material);
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+
+scene.add(torus,particlesMesh);
 torus.position.z = -55;
 torus.position.x = -10;
 
@@ -43,5 +62,36 @@ function animate(){
 
     renderer.render(scene, camera)
 }
+//mouse
+document.addEventListener('mousemove', animateParticles);
+let mouseX = 0; 
+let mouseY = 0; 
+
+function animateParticles(event){
+    mouseY = event.clientY;
+    mouseX = event.clientX;
+}
+
+const tick =() => {
+    const elapsedTime = clock.getElapsedTime();
+
+   
+
+    toros.rotation.y = .5 
+
+
+    particlesMesh.rotation.y = -.1 * elapsedTime
+
+    if(mouseX > 0){
+    particlesMesh.rotation.x = -mouseY * (elapsedTime * 0.00008)
+    particlesMesh.rotation.y = mouseY * (elapsedTime * 0.00008)
+    }
+    renderer.render(scene,camera)
+
+    window.requestAnimationFrame(tick);
+}
+
+
+renderer.setClearColor(new THREE.Color('#21282a'),1);
 
 animate();
