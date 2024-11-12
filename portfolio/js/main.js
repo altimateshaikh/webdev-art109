@@ -220,6 +220,10 @@ function createShaderMaterial(shader, light, ambientLight) {
 function updateCubes(object, time, numblobs, floor, wallx, wallz) {
     object.reset();
 
+    const widthFactor = window.innerWidth / 800;  // Adjust based on desired size
+    const heightFactor = window.innerHeight / 600;
+
+
     const rainbow = [
         new THREE.Color(0xff0000),
         new THREE.Color(0xffbb00),
@@ -233,9 +237,9 @@ function updateCubes(object, time, numblobs, floor, wallx, wallz) {
     const strength = 1.2 / ((Math.sqrt(numblobs) - 1) / 4 + 1);
 
     for (let i = 0; i < numblobs; i++) {
-        const ballx = Math.sin(i + 1.26 * time * (1.03 + 0.5 * Math.cos(0.21 * i))) * 0.27 + 0.5;
-        const bally = Math.abs(Math.cos(i + 1.12 * time * Math.cos(1.22 + 0.1424 * i))) * 0.77; // dip into the floor
-        const ballz = Math.cos(i + 1.32 * time * 0.1 * Math.sin((0.92 + 0.53 * i))) * 0.27 + 0.5;
+        const ballx = Math.tan(i + 1.26 * time * (1.03 + 0.5 * Math.cos(0.21 * i))) * -widthFactor;
+        const bally = Math.abs(Math.cos(i + 1.12 * time * Math.cos(1.22 + 0.1424 * i))) * heightFactor ; // dip into the floor
+        const ballz = Math.cos(i + 1.32 * time * 0.1 * Math.sin((0.92 + 0.53 * i))) * 0.2 * widthFactor + 0.5;
 
         if (current_material === 'multiColors') {
             object.addBall(ballx, bally, ballz, strength, subtract, rainbow[i % 7]);
@@ -244,9 +248,9 @@ function updateCubes(object, time, numblobs, floor, wallx, wallz) {
         }
     }
 
-    if (floor) object.addPlaneY(2, 12);
+    if (floor) object.addPlaneY(2, 100);
     if (wallz) object.addPlaneZ(2, 12);
-    if (wallx) object.addPlaneX(2, 12);
+    if (wallx) object.addPlaneX(2, 100);
 
     object.update();
 }
@@ -273,7 +277,7 @@ function render() {
         effect.isolation = 500;
     
 
-    updateCubes(effect, time, 100, false, false, false);
+    updateCubes(effect, time/3, 100, false, false, false);
 
     renderer.render(scene, camera);
 }
