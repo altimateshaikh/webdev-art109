@@ -237,9 +237,9 @@ function updateCubes(object, time, numblobs, floor, wallx, wallz) {
     const strength = 1.2 / ((Math.sqrt(numblobs) - 1) / 4 + 1);
 
     for (let i = 0; i < numblobs; i++) {
-        const ballx = Math.tan(i + 1.26 * time * (1.03 + 0.5 * Math.cos(0.21 * i))) * -widthFactor;
-        const bally = Math.abs(Math.cos(i + 1.12 * time * Math.cos(1.22 + 0.1424 * i))) * heightFactor ; // dip into the floor
-        const ballz = Math.cos(i + 1.32 * time * 0.1 * Math.sin((0.92 + 0.53 * i))) * 0.2 * widthFactor + 0.5;
+        const ballx = Math.tan(i + 1.26 * time * (1.03 + 0.5 * Math.cos(0.21 * i))) * widthFactor * 2;
+        const bally = Math.sin(Math.cos(i + 1.12 * time * Math.cos(1.22 + 0.1424 * i))) * heightFactor ; 
+        const ballz = Math.cos(i + 1.32 * time * 0.1 * Math.cos((0.92 + 0.53 * i))) * 0.2 * widthFactor + 0.5;
 
         if (current_material === 'multiColors') {
             object.addBall(ballx, bally, ballz, strength, subtract, rainbow[i % 7]);

@@ -10,9 +10,39 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body class="resume">
+    <nav>
+      <ul class="sidebar">
+        <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+        <li><a href="index.html">cover</a></li>
+        <li><a href="resume.html">resume</a></li>
+        <!-- <li><a href="#">survices</a></li>
+        <li><a href="#">contact</a></li> -->
+      </ul>
+      <ul>
+        <li onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        <!-- <li><a href="#">tutorial</a></li> -->
+        <li class="hideOnMobile"><a href="index.html">cover</a></li>
+        <li class="hideOnMobile"><a href="resume.html">resume</a></li>
+        <!-- <li class="hideOnMobile"><a href="#">survices</a></li>
+        <li class="hideOnMobile"><a href="#">contact</a></li> -->
+        
+      </ul>
+    </nav>
+    <script>
+      function showSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'flex'
+      }
+      function hideSidebar(){
+         const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'none'
+      }
+    </script>
+
     <a class="btn download-link" href="My Resume-Graphics.pdf">Download PDF</a>
     <!-- //  INTRO  // -->
     <header>
+      
       <div class="content-wrapper">
       <!-- Start content edits below this line. -->
         <h1>Moosa Shaikh</h1>
@@ -22,6 +52,8 @@
     </header>
 
     <main class="content-wrapper">
+
+  
       <!-- //  PROFILE  // -->
       <section class="resume-section">
         <!-- Start content edits below this line. -->
