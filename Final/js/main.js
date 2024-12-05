@@ -41,11 +41,14 @@ renderer.domElement.addEventListener('click', (event) => {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
+   
+    
     const raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mouse, camera);
 
-    // Create the throwable sphere at the mouse position
-    const intersects = raycaster.intersectObject(ground); // Intersect with the ground plane
+    const intersects = raycaster.intersectObject(sphere);
+    console.log("Creating throwable sphere at:", mouseX, mouseY);
+    
     if (intersects.length > 0) {
         ripples.push({
             position: intersects[0].point.clone(),
@@ -165,7 +168,7 @@ renderer.domElement.addEventListener('mousedown', (event) => {
     }
 });
 
-// Update the mouse move event to calculate velocity
+// Mouse move event
 renderer.domElement.addEventListener('mousemove', (event) => {
     if (isDragging) {
         const mouse = new THREE.Vector2();
@@ -317,9 +320,3 @@ document.querySelector('.round-button.button3').addEventListener('click', () => 
         throwableSphere.material.color.set(throwableSphereColor); // Set color for button 2 ball
     }
 });
-
-// Reset position if the sphere falls below a certain height
-if (throwableSphere.position.y < -5) { // Adjust this value as needed
-    throwableSphere.position.set(0, -0.5, 0); // Reset position to ground level
-    velocity.set(0, 0, 0); // Reset velocity
-}
