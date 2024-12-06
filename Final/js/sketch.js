@@ -29,7 +29,7 @@ function draw() {
   background('#fff');
   // if(frameCount < 133){
 
-     frameRate(20);
+     frameRate(12);
     parametricCurve.update(); // Update positions
     parametricCurve.display(-1); // Display circles
 
