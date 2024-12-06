@@ -156,7 +156,7 @@ renderer.domElement.addEventListener('mousedown', (event) => {
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(mouse, camera);
+    raycaster.setFromCamera(mouse, camera, 50);
 
     // Check for dragging the throwable sphere only
     if (throwableSphere) {
@@ -189,8 +189,8 @@ renderer.domElement.addEventListener('mousemove', (event) => {
                 // Calculate velocity based on mouse movement
                 finalMousePosition.set(event.clientX, event.clientY);
                 velocity.set(
-                    (finalMousePosition.x - initialMousePosition.x) * -0.05, // Inverted scale for sensitivity
-                    (finalMousePosition.y - initialMousePosition.y) * -0.05,
+                    (finalMousePosition.x - initialMousePosition.x) * -0.01, // Adjusted scale for sensitivity
+                    (finalMousePosition.y - initialMousePosition.y) * -0.01,
                     0 // Keep Z velocity constant
                 );
             }
@@ -218,8 +218,15 @@ const groundGeometry = new THREE.PlaneGeometry(100, 100); // Adjust size as need
 const groundMaterial = new THREE.MeshBasicMaterial({ color: 0xCCCCCC, side: THREE.DoubleSide, transparent: true, opacity: 0 }); // Make it transparent
 const ground = new THREE.Mesh(groundGeometry, groundMaterial);
 ground.rotation.x = -Math.PI / 2; // Rotate to make it horizontal
-ground.position.y = -0.5; // Position the ground at the bottom of the screen
+ground.position.y = -0.095; // Position the ground at the bottom of the screen
 scene.add(ground); // Add the ground to the scene
+
+// Create a visible boundary for the throwable sphere
+const boundaryGeometry = new THREE.BoxGeometry(window.innerWidth, window.innerHeight, 1); // Adjust size as needed
+const boundaryMaterial = new THREE.LineBasicMaterial({ color: 0xff0000 }); // Red color for visibility
+const boundary = new THREE.LineSegments(new THREE.EdgesGeometry(boundaryGeometry), boundaryMaterial);
+boundary.position.z = -0.95; // Position it slightly behind the sphere
+scene.add(boundary); // Add the boundary to the scene
 
 // Update the animation function to handle the throwable sphere
 function animate() {
